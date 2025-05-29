@@ -21,7 +21,7 @@ export interface DataType {
   surname: string;
   age: number;
   phone: string;
-  avatar?: string; // Added avatar field
+  avatar?: string; 
 }
 
 const Home = () => {

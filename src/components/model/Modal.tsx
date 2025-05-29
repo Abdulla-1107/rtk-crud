@@ -29,7 +29,9 @@ const ModalWrapper: FC<Props> = ({ isModalOpen, handleCancel, updateUser }) => {
     if (updateUser) {
       form.setFieldsValue({
         name: updateUser.name,
-        profession: updateUser.profession,
+        surname: updateUser.surname,
+        age: updateUser.age,
+        phone: updateUser.phone,
       });
     } else {
       form.resetFields();
@@ -79,7 +81,12 @@ const ModalWrapper: FC<Props> = ({ isModalOpen, handleCancel, updateUser }) => {
         layout="vertical"
         initialValues={
           updateUser
-            ? { name: updateUser.name, profession: updateUser.profession }
+            ? {
+                name: updateUser.name,
+                surname: updateUser.surname,
+                age: updateUser.age,
+                phone: updateUser.phone,
+              }
             : {}
         }
         className="space-y-4"
@@ -98,7 +105,7 @@ const ModalWrapper: FC<Props> = ({ isModalOpen, handleCancel, updateUser }) => {
         <Form.Item<FieldType>
           label="Surname"
           name="surname"
-          rules={[{ required: true, message: "Please input your profession!" }]}
+          rules={[{ required: true, message: "Please input your surname!" }]}
         >
           <Input
             className="rounded-md border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
@@ -121,7 +128,9 @@ const ModalWrapper: FC<Props> = ({ isModalOpen, handleCancel, updateUser }) => {
         <Form.Item<FieldType>
           label="Phone"
           name="phone"
-          rules={[{ required: true, message: "Please input your age!" }]}
+          rules={[
+            { required: true, message: "Please input your phone number!" },
+          ]}
         >
           <Input
             type="text"
